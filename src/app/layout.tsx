@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   description: "Affordable tutorial centre and school management software designed for Namibian educators. Manage students, fees, payments, and more. Start free today!",
   keywords: ["tutorial centre software", "school management system", "namibia", "student management", "fee management", "namclass"],
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   openGraph: {
     title: "NamClass | Tutorial Centre & School Management Software",
