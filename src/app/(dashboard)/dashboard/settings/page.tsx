@@ -929,9 +929,10 @@ export default function CenterSettingsPage() {
                   <Input
                     label="Default Registration Fee (N$)"
                     type="number"
-                    value={centerData.default_registration_fee}
-                    onChange={(e) => setCenterData({ ...centerData, default_registration_fee: parseFloat(e.target.value) || 0 })}
+                    value={centerData.default_registration_fee || ''}
+                    onChange={(e) => setCenterData({ ...centerData, default_registration_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
                     placeholder="e.g., 500"
+                    min="0"
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     This will be added to the yearly total for new students

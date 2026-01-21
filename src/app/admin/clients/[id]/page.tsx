@@ -680,8 +680,9 @@ export default function ClientDetailPage() {
             label="Amount (R)"
             type="number"
             step="0.01"
-            value={paymentForm.amount}
-            onChange={(e) => setPaymentForm({ ...paymentForm, amount: parseFloat(e.target.value) || 0 })}
+            min="0"
+            value={paymentForm.amount || ''}
+            onChange={(e) => setPaymentForm({ ...paymentForm, amount: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
           />
 
           <Input

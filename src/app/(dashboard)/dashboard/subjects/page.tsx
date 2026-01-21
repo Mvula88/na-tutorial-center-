@@ -688,11 +688,11 @@ export default function SubjectsPage() {
                 type="number"
                 step="0.01"
                 min="0"
-                value={formData.monthly_fee}
+                value={formData.monthly_fee || ''}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    monthly_fee: parseFloat(e.target.value) || 0,
+                    monthly_fee: e.target.value === '' ? 0 : parseFloat(e.target.value),
                   })
                 }
               />

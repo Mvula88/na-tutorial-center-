@@ -343,8 +343,9 @@ export function SetupWizard() {
                     <span className="text-gray-400 text-lg">N$</span>
                     <input
                       type="number"
-                      value={registrationFee}
-                      onChange={(e) => setRegistrationFee(parseFloat(e.target.value) || 0)}
+                      value={registrationFee || ''}
+                      onChange={(e) => setRegistrationFee(e.target.value === '' ? 0 : parseFloat(e.target.value))}
+                      min="0"
                       className="flex-1 bg-transparent text-2xl font-semibold text-gray-900 focus:outline-none"
                       placeholder="0"
                     />
@@ -447,13 +448,14 @@ export function SetupWizard() {
                             <span className="text-gray-400 text-sm mr-1">N$</span>
                             <input
                               type="number"
-                              value={editingSubject.monthly_fee}
+                              value={editingSubject.monthly_fee || ''}
                               onChange={(e) =>
                                 setEditingSubject({
                                   ...editingSubject,
-                                  monthly_fee: parseFloat(e.target.value) || 0,
+                                  monthly_fee: e.target.value === '' ? 0 : parseFloat(e.target.value),
                                 })
                               }
+                              min="0"
                               className="w-20 px-2 py-1.5 rounded-lg border border-gray-300 text-sm"
                             />
                           </div>
@@ -516,10 +518,11 @@ export function SetupWizard() {
                       <span className="text-gray-400 text-sm mr-1">N$</span>
                       <input
                         type="number"
-                        value={newSubject.monthly_fee}
+                        value={newSubject.monthly_fee || ''}
                         onChange={(e) =>
-                          setNewSubject({ ...newSubject, monthly_fee: parseFloat(e.target.value) || 0 })
+                          setNewSubject({ ...newSubject, monthly_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })
                         }
+                        min="0"
                         className="w-20 px-2 py-2 rounded-lg border border-gray-300 text-sm"
                       />
                     </div>

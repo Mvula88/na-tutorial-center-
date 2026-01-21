@@ -297,8 +297,9 @@ export default function NewClientPage() {
             <Input
               label="Setup Fee (R)"
               type="number"
-              value={formData.setup_fee}
-              onChange={(e) => setFormData({ ...formData, setup_fee: parseFloat(e.target.value) || 0 })}
+              min="0"
+              value={formData.setup_fee || ''}
+              onChange={(e) => setFormData({ ...formData, setup_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
             />
             <div className="flex items-center">
               <label className="flex items-center gap-3 cursor-pointer">

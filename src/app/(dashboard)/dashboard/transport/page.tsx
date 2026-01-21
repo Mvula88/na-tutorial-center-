@@ -1037,8 +1037,9 @@ export default function TransportPage() {
                 label="Capacity (seats)"
                 type="number"
                 required
-                value={vehicleForm.capacity}
-                onChange={(e) => setVehicleForm({ ...vehicleForm, capacity: parseInt(e.target.value) || 0 })}
+                min="1"
+                value={vehicleForm.capacity || ''}
+                onChange={(e) => setVehicleForm({ ...vehicleForm, capacity: e.target.value === '' ? 0 : parseInt(e.target.value) })}
               />
               <Input
                 label="Driver Name"
@@ -1113,8 +1114,9 @@ export default function TransportPage() {
                 label="Monthly Fee (R)"
                 type="number"
                 step="0.01"
-                value={routeForm.monthly_fee}
-                onChange={(e) => setRouteForm({ ...routeForm, monthly_fee: parseFloat(e.target.value) || 0 })}
+                min="0"
+                value={routeForm.monthly_fee || ''}
+                onChange={(e) => setRouteForm({ ...routeForm, monthly_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
               />
               <div className="flex gap-3 pt-4">
                 <Button type="button" variant="secondary" onClick={() => setShowRouteModal(false)} className="flex-1">

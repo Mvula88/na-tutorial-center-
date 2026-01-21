@@ -343,8 +343,9 @@ export default function EditClientPage() {
                 <Input
                   label="Monthly SMS Fee (R)"
                   type="number"
-                  value={formData.monthly_sms_fee}
-                  onChange={(e) => setFormData({ ...formData, monthly_sms_fee: parseFloat(e.target.value) || 0 })}
+                  min="0"
+                  value={formData.monthly_sms_fee || ''}
+                  onChange={(e) => setFormData({ ...formData, monthly_sms_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
                 />
               </div>
             )}
@@ -403,8 +404,9 @@ export default function EditClientPage() {
                 <Input
                   label="Annual Website Fee (R)"
                   type="number"
-                  value={formData.annual_website_fee}
-                  onChange={(e) => setFormData({ ...formData, annual_website_fee: parseFloat(e.target.value) || 0 })}
+                  min="0"
+                  value={formData.annual_website_fee || ''}
+                  onChange={(e) => setFormData({ ...formData, annual_website_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
                 />
               </div>
             )}
@@ -430,8 +432,9 @@ export default function EditClientPage() {
             <Input
               label="Setup Fee (R)"
               type="number"
-              value={formData.setup_fee}
-              onChange={(e) => setFormData({ ...formData, setup_fee: parseFloat(e.target.value) || 0 })}
+              min="0"
+              value={formData.setup_fee || ''}
+              onChange={(e) => setFormData({ ...formData, setup_fee: e.target.value === '' ? 0 : parseFloat(e.target.value) })}
             />
           </div>
 
